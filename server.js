@@ -1,7 +1,6 @@
 var ip = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
 var port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
 
-
 // load webservice and database libraries
 var express = require('express');
 var app = express();
@@ -77,13 +76,13 @@ app.delete("/serviceClients/:id", function (req, res) {
 		});
 });
 
-
-
-
 app.get("/env", function (req, res) {
     res.json(process.env);
 });
 
+app.get("/hello", function (req, res) {
+    res.send("Hello World");
+});
 
 // listen to port 3000 in localhost
 app.listen(port, ip);
@@ -100,4 +99,16 @@ Connection URL: mongodb://$OPENSHIFT_MONGODB_DB_HOST:$OPENSHIFT_MONGODB_DB_PORT/
 
 
 OPENSHIFT_MONGODB_DB_URL: "mongodb://admin:YjIY8hdFKNXV@127.3.171.2:27017/",
+ */
+
+
+/*
+ * Git
+ * 
+ * git remote add onlineide -f https://github.com/jannunzi/onlineide.git
+ * 
+ * git merge onlineide/master -s recursive -X ours
+ * 
+ * git push onlineide HEAD
+ * 
  */
