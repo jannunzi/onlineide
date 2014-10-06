@@ -3,6 +3,7 @@ var port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
 
 // load webservice and database libraries
 var express = require('express');
+var app = express();
 
 app.get("/env", function (req, res) {
     res.json(process.env);
