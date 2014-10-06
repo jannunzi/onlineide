@@ -3,17 +3,6 @@ port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
 
 // load webservice and database libraries
 var express = require('express');
-var mongojs = require('mongojs');
-
-// instantiate both libraries and connecto to the cs5610353 database
-var app = express();
-var db = mongojs("cs5610353", ["serviceClients"]);
-
-// serve static content (html, css, js) in the public directory
-app.use(express.static(__dirname + '/public'));
-
-// configure express to parse JSON in the body of an HTTP request
-app.use(express.bodyParser());
 
 app.get("/env", function (req, res) {
     res.json(process.env);
@@ -78,4 +67,4 @@ app.delete("/serviceClients/:id", function (req, res) {
 });
 
 // listen to port 3000 in localhost
-app.listen(3000);
+app.listen(port, ip);
